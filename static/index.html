@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHIFOMED | Bemorlar Kirishi</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/style_updates.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="glass-panel">
+            <h1 class="logo">SHIFO<span>MED</span></h1>
+            
+            <div class="tabs" id="authTabs">
+                <button class="tab active" onclick="switchTab('login')">Kirish</button>
+                <button class="tab" onclick="switchTab('register')">Ro'yxatdan o'tish</button>
+            </div>
+
+            <!-- Login Form -->
+            <form id="loginForm" class="form-section active" onsubmit="handleLogin(event)">
+                <div class="input-group">
+                    <label for="loginPhone">Telefon raqam</label>
+                    <input type="text" id="loginPhone" placeholder="+998901234567" required>
+                </div>
+                <div class="input-group">
+                    <label for="loginPassword">Parol</label>
+                    <input type="password" id="loginPassword" placeholder="Parolingizni kiriting" required>
+                </div>
+                <div id="loginError" class="error-msg"></div>
+                <button type="submit" class="btn-primary" id="loginBtn">Tizimga kirish</button>
+            </form>
+
+            <!-- Register Form -->
+            <form id="registerForm" class="form-section" onsubmit="handleRegister(event)">
+                <div class="input-group row">
+                    <div class="half">
+                        <label for="regFirstName">Ism</label>
+                        <input type="text" id="regFirstName" placeholder="Ali" required>
+                    </div>
+                    <div class="half">
+                        <label for="regLastName">Familiya</label>
+                        <input type="text" id="regLastName" placeholder="Valiyev" required>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="regPhone">Telefon raqam</label>
+                    <input type="text" id="regPhone" placeholder="+998901234567" required>
+                </div>
+                <div class="input-group">
+                    <label for="regPassword">Parol</label>
+                    <input type="password" id="regPassword" placeholder="Kamida 6 belgi" required>
+                </div>
+                <div id="regError" class="error-msg"></div>
+                <button type="submit" class="btn-primary" id="regBtn">Ro'yxatdan o'tish</button>
+            </form>
+            
+            <!-- Dashboard (Hidden by default) -->
+            <div id="dashboard" class="form-section dashboard-wide">
+                <h2>Xush kelibsiz!</h2>
+                <div class="profile-card">
+                    <div class="avatar" id="userInitial">A</div>
+                    <div class="info">
+                        <h3 id="userName">Ali Valiyev</h3>
+                        <p id="userPhone">+998901234567</p>
+                    </div>
+                    <button class="btn-secondary logout-btn" onclick="handleLogout()">Chiqish</button>
+                </div>
+
+                <div class="dashboard-content">
+                    <div class="doctors-section">
+                        <h3>Shifokorlar ro'yxati</h3>
+                        <div id="doctorsList" class="doctors-list">
+                            <!-- Doctors will be loaded here -->
+                        </div>
+                    </div>
+
+                    <div class="appointments-section">
+                        <h3>Mening navbatlarim</h3>
+                        <div id="appointmentsList" class="appointments-list">
+                            <!-- Appointments will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Background Elements -->
+    <div class="bg-shape shape1"></div>
+    <div class="bg-shape shape2"></div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
